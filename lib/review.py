@@ -1,5 +1,7 @@
+import customers
+import restaurant
 class Review:
-    all_review=[]
+    all_reviews=[]
     def __init__(self,customer,restaurant, rating):
        self.customer=customer
        self.restaurant=restaurant
@@ -16,6 +18,12 @@ class Review:
 
     @classmethod
     def add_to_reviews(cls, review):
-        cls.all_reviews.append(review)
-
+        cls.all_reviews.append(review)    
+    
+    def customer(self):
+        return self.customer
+    def restaurant(self):
+        return self.restaurant
     pass
+
+kim = Review(customers,restaurant, 10)

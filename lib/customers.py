@@ -32,5 +32,3 @@ class Customer:
         print([customer.full_name for customer in cls.all_customers])
     pass
 
-kim = Customer("Dennis", "Kimaita")
-Customer.show_customer_name()

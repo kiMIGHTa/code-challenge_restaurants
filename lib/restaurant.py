@@ -4,4 +4,5 @@ class Restaurant:
 
     def name(self):
         return self.name         
-    pass
+    
+
