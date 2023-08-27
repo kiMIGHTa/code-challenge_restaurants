@@ -1,4 +1,6 @@
 class Review:
-    def __init__(self) -> None:
-       pass
+    def __init__(self,customer,restaurant, rating):
+       self.customer=customer
+       self.restaurant=restaurant
+       self.rating=rating
     pass
