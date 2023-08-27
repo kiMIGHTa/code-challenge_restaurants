@@ -26,4 +26,3 @@ class Review:
         return self.restaurant
     pass
 
-kim = Review(customers,restaurant, 10)
