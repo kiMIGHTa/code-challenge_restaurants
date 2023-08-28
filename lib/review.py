@@ -26,3 +26,5 @@ class Review:
         return self.restaurant
     pass
 
+first_review= Review(customers,restaurant, 10)
+

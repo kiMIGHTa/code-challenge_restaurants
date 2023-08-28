@@ -1,3 +1,4 @@
+import restaurant
 class Customer:
     all_customers=[]
 
@@ -6,6 +7,7 @@ class Customer:
         self.family_name=family_name
         self.full_name=Customer.full_name(self) 
         Customer.add_to_customers(self)
+        self.review_list=[]
 
     def given_name(self):
         return self.given_name    
@@ -30,5 +32,18 @@ class Customer:
     @classmethod    
     def show_customer_name(cls):
         print([customer.full_name for customer in cls.all_customers])
+
+    def restaurants(self):
+        print([obj.restaurant.name for obj in self.review_list])
+    @classmethod
+    def create_review(self,restaurant,rating):
+        return Review(restaurant,rating)
+    
+    def add_review(self):
+        review = Customer.create_review()
+        self.review_list.append(review)
     pass
 
+kim = Customer("Dennis", "Kimaita")
+kim.create_review(restaurant, 10)
+Customer.restaurants()
