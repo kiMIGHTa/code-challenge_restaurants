@@ -17,7 +17,10 @@ class Review:
 
     @classmethod
     def add_to_reviews(cls, review):
-        cls.all_reviews.append(review)    
+        cls.all_reviews.append(review) 
+
+    def all(self):
+        return self.all_reviews      
     
     def customer(self):
         return self.customer
@@ -76,6 +79,9 @@ class Customer:
     def add_to_customers(cls, customer):
         cls.all_customers.append(customer)
 
+    def all(self):
+        return self.all_customers  
+
     @classmethod    
     def show_customer_name(cls):
         print([customer.full_name for customer in cls.all_customers])
@@ -89,8 +95,27 @@ class Customer:
 
     def num_reviews(self):
         print(len(self.review_list))     
-        return (len(self.review_list))     
-    
+        return (len(self.review_list))  
+    @classmethod
+    def find_by_name(cls,name):
+        for customer in cls.all_customers:
+            if customer.full_name==name:
+                print (customer.full_name)
+
+        pass 
+    @classmethod
+    def find_all_by_given_name(cls,name):
+        for customer in cls.all_customers:
+            customer_list=[]
+            if customer.given_name==name:
+                customer_list.append(customer.given_name)
+                print(customer_list)
+            else:
+                return None
+        return customer_list        
+
+        pass  
+
     pass
 
 kim = Customer("Dennis", "Kimaita")
@@ -98,5 +123,6 @@ restaurant = Restaurant("Pizzeria")
 restaurant2 = Restaurant("Taco")
 kim.create_review(restaurant, 10)
 kim.create_review(restaurant2, 6)
-Customer.num_reviews(kim)
+kim.num_reviews()
+Customer.find_all_by_given_name("Dennis")
 
