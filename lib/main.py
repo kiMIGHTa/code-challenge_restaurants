@@ -20,7 +20,7 @@ class Review:
         cls.all_reviews.append(review) 
 
     def all(self):
-        return self.all_reviews      
+        print(self.all_reviews)      
     
     def customer(self):
         return self.customer
@@ -40,10 +40,19 @@ class Restaurant:
     def add_to_reviews(self,review):
         return self.reviews.append(review)        
     def reviews(self):
-        return [obj.rating for obj in self.reviews]
+        print( [obj.rating for obj in self.reviews])
     
     def customers(self):
         return  [obj.customer for obj in self.reviews]
+    def average_star_rating(self):
+        if self.reviews !=0:
+            total=0
+            for obj in self.reviews:
+                total+=obj.rating
+                return total/len(self.reviews)
+            
+
+        pass
 
 
 
@@ -78,7 +87,7 @@ class Customer:
     @classmethod
     def add_to_customers(cls, customer):
         cls.all_customers.append(customer)
-
+    @classmethod
     def all(self):
         return self.all_customers  
 
@@ -121,8 +130,9 @@ class Customer:
 kim = Customer("Dennis", "Kimaita")
 restaurant = Restaurant("Pizzeria")
 restaurant2 = Restaurant("Taco")
-kim.create_review(restaurant, 10)
+review1=Review(kim,restaurant, 10)
 kim.create_review(restaurant2, 6)
 kim.num_reviews()
 Customer.find_all_by_given_name("Dennis")
 
+print(restaurant.average_star_rating())
