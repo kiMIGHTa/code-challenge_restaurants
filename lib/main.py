@@ -86,12 +86,17 @@ class Customer:
     def create_review(self,restaurant,rating):
         review = Review(self,restaurant,rating)
         self.review_list.append(review)
-        
+
+    def num_reviews(self):
+        print(len(self.review_list))     
+        return (len(self.review_list))     
     
     pass
 
 kim = Customer("Dennis", "Kimaita")
 restaurant = Restaurant("Pizzeria")
+restaurant2 = Restaurant("Taco")
 kim.create_review(restaurant, 10)
-Customer.restaurants(kim)
+kim.create_review(restaurant2, 6)
+Customer.num_reviews(kim)
 
