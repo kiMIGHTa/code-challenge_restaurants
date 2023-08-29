@@ -1,11 +1,14 @@
 
 class Review:
-    all_reviews=[]
+    all_reviews = []  # List to store all review instances
     def __init__(self,customer,restaurant, rating):
        self.customer=customer
        self.restaurant=restaurant
        self.rating=rating
        Review.add_to_reviews(self)
+
+
+    # getter and setter for rating property
     def get_rating(self):
         return self._rating  
     def set_rating(self,rating):
@@ -20,8 +23,10 @@ class Review:
         cls.all_reviews.append(review) 
 
     def all(self):
-        print(self.all_reviews)      
-    
+        print(self.all_reviews)   
+
+
+    # customer and restaurant methods to retrieve associated instances
     def customer(self):
         return self.customer
     def restaurant(self):
@@ -32,8 +37,9 @@ class Review:
 class Restaurant:
     def __init__(self,name):
         self.name=name   
-        self.reviews=[]
+        self.reviews = []  # List to store reviews for this restaurant
 
+    # methods for name, add_to_reviews, reviews, customers
     def name(self):
         return self.name 
 
@@ -113,15 +119,15 @@ class Customer:
 
         pass 
     @classmethod
-    def find_all_by_given_name(cls,name):
+    def find_all_by_given_name(cls, name):
+        customer_list = []
         for customer in cls.all_customers:
-            customer_list=[]
-            if customer.given_name==name:
+            if customer.given_name == name:
                 customer_list.append(customer.given_name)
                 print(customer_list)
             else:
                 return None
-        return customer_list        
+        return customer_list      
 
         pass  
 
